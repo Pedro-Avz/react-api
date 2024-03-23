@@ -14,7 +14,8 @@ function ListaCarros() {
   const deletarCarro = (id) => {
     axios.delete(`https://ifsp.ddns.net/webservices/carro/carro/${id}`)
     .then(() => {
-        window.location.reload();
+        alert('Carro deletado com sucesso');
+        setCarros(carros.filter(carro => carro.id !== id));
     })
     .catch(error => console.error(error));
 };
